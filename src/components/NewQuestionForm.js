@@ -6,7 +6,7 @@ const NewQuestionForm = ({ onQuestionSubmit, user }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const newQuestion = { title, author: user.name, date: new Date().toISOString().split('T')[0] };
+    const newQuestion = { title, author: user.email, date: new Date().toISOString().split('T')[0] };
 
     // Gửi dữ liệu đến JSON Server
     const response = await fetch('http://localhost:3001/questions', {

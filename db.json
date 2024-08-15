@@ -1,141 +1,78 @@
 {
   "questions": [
     {
-      "title": "How to integrate TailwindCSS?",
-      "author": "Alice Johnson",
-      "date": "2023-10-01",
-      "id": "6fac"
-    },
-    {
-      "title": "Best practices for REST API?",
-      "author": "Bob Smith",
-      "date": "2023-09-29",
-      "id": "dd24"
-    },
-    {
-      "title": "How to deploy with Docker?",
-      "author": "Charlie Brown",
-      "date": "2023-09-28",
-      "id": "0376"
-    },
-    {
-      "title": "Understanding Kubernetes?",
-      "author": "Diana Ross",
-      "date": "2023-09-27",
-      "id": "ee5d"
-    },
-    {
-      "title": "What is GraphQL?",
-      "author": "Edward King",
-      "date": "2023-09-26",
-      "id": "9ff0"
-    },
-    {
-      "title": "How to use Redux in React?",
-      "author": "Fiona White",
-      "date": "2023-09-25",
-      "id": "be5a"
-    },
-    {
-      "id": "6dbb",
-      "title": "very good",
-      "author": "test",
-      "date": "2024-08-15"
-    },
-    {
-      "id": "158b",
-      "title": "dd",
-      "author": "33",
-      "date": "2024-08-15"
-    },
-    {
-      "id": "7e6e",
-      "title": "ddd",
-      "author": "333",
-      "date": "2024-08-15"
-    },
-    {
-      "id": "d5d2",
-      "title": "f",
-      "author": "d",
-      "date": "2024-08-15"
-    },
-    {
-      "id": "db08",
-      "title": "f",
-      "author": "d",
-      "date": "2024-08-15"
-    },
-    {
-      "id": "da93",
-      "title": "d",
-      "author": "33",
-      "date": "2024-08-15"
-    },
-    {
-      "id": "3783",
-      "title": "s",
-      "author": "33",
-      "date": "2024-08-15"
-    },
-    {
-      "id": "e2b1",
-      "title": "dd2",
-      "author": "22",
-      "date": "2024-08-15"
-    },
-    {
-      "id": "cf37",
-      "title": "f",
-      "author": "44",
-      "date": "2024-08-15"
-    },
-    {
-      "id": "9e00",
-      "title": "he ",
-      "author": "hhh",
-      "date": "2024-08-15"
-    },
-    {
-      "id": "00ac",
-      "title": "s",
-      "author": "s",
-      "date": "2024-08-15"
-    },
-    {
-      "id": "ee22",
+      "id": "dbc6",
       "title": "test",
-      "author": "j3j33",
+      "author": "khoa",
+      "date": "2024-08-15",
+      "adminResponse": "dd",
+      "answerBy": "amazingtechAdmin@gmail.com",
+      "answerAtDate": "2024-08-15T22:01:08.301Z"
+    },
+    {
+      "id": "0143",
+      "title": "test2",
+      "author": "gsgsg",
       "date": "2024-08-15"
     },
     {
-      "id": "965f",
-      "title": "d3",
-      "author": "3",
-      "date": "2024-08-15"
-    },
-    {
-      "id": "dce3",
-      "title": "32",
-      "author": "22",
-      "date": "2024-08-15"
-    },
-    {
-      "id": "2127",
-      "title": "dddd",
-      "author": "ddd",
-      "date": "2024-08-15"
-    },
-    {
-      "id": "89d7",
-      "title": "hay",
-      "author": "ddd",
-      "date": "2024-08-15"
-    },
-    {
-      "id": "30be",
-      "title": "dd",
+      "id": "d047",
+      "title": "ddd",
       "author": "kkk",
+      "date": "2024-08-15"
+    },
+    {
+      "id": "13f3",
+      "title": "jvdjvjvdvjdnvdj",
+      "author": "dd",
+      "date": "2024-08-15"
+    },
+    {
+      "id": "c919",
+      "title": "dd3333",
+      "author": "tkhoa22@gmail.com",
+      "date": "2024-08-15"
+    },
+    {
+      "id": "0689",
+      "title": "ddd",
+      "author": "kkk",
+      "date": "2024-08-15"
+    },
+    {
+      "id": "024c",
+      "title": "abcdefg",
+      "author": "dd",
+      "date": "2024-08-15"
+    },
+    {
+      "id": "be5c",
+      "title": "4344",
+      "author": "tkhoa22@gmail.com",
+      "date": "2024-08-15"
+    },
+    {
+      "id": "9631",
+      "title": "ddd",
+      "author": "kkk",
+      "date": "2024-08-15"
+    },
+    {
+      "id": "b088",
+      "title": "bcjdvc",
+      "author": "tkhoa23@gmail.com",
+      "date": "2024-08-15"
+    },
+    {
+      "id": "bd8e",
+      "title": "good",
+      "author": "tkhoa23@gmail.com",
+      "date": "2024-08-15"
+    },
+    {
+      "id": "0e6c",
+      "title": "d333333",
+      "author": "tkhoa22@gmail.com",
       "date": "2024-08-15"
     }
   ]
