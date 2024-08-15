@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Roboto', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* .container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  padding: 20px;
+} */
+
+.menu {
+  width: 250px;
+  background-color: #f7f7f7;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.content {
+  flex: 1;
+  padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.questions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.question-card {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  padding: 10px;
+  margin: 5px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #f1f1f1;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .menu {
+    display: none; /* Ẩn menu trên mobile */
   }
+
+  .questions {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+
+
+/* .menuButton {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+} */
+
+/* .sidebarContainer {
+  width: 250px;
+} */
+
+
+/* src/App.css */
+.menuButton {
+  display: block !important; /* Đảm bảo rằng nút menu luôn hiển thị */
+}
+
+.menuButton svg {
+  font-size: 24px; /* Điều chỉnh kích thước của biểu tượng */
+}
+.container {
+  display: flex;
+}
+
+.sidebarContainer {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
