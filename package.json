@@ -19,11 +19,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "REACT_APP_EXAMPLE_NAME=$REACT_APP_EXAMPLE_NAME react-scripts start",
-    "build": "REACT_APP_EXAMPLE_NAME=$REACT_APP_EXAMPLE_NAME react-scripts build",
-    "test": "REACT_APP_EXAMPLE_NAME=$REACT_APP_EXAMPLE_NAME react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "node server.js"
+    "install": "npm install --legacy-peer-deps",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
