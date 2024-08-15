@@ -4,7 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import NewQuestionForm from './NewQuestionForm';
 
-const Sidebar = ({ onNewQuestion }) => {
+const Sidebar = ({ onNewQuestion, user }) => {
   const isMobile = useMediaQuery('(max-width:600px)');
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -32,17 +32,16 @@ const Sidebar = ({ onNewQuestion }) => {
   const sidebarContent = (
     <List component="nav" className="sidebar">
       <ListItem>
-        <Button variant="contained" fullWidth>Dashboard</Button>
-      </ListItem>
-      <ListItem>
         <Button variant="contained" fullWidth>Manage Questions</Button>
       </ListItem>
       <ListItem>
         <Button variant="contained" fullWidth>Manage Interns</Button>
       </ListItem>
-      <ListItem>
-        <Button variant="contained" fullWidth onClick={handleDialogOpen}>Submit Question</Button>
-      </ListItem>
+      {user.role === 'student' && (
+        <ListItem>
+          <Button variant="contained" fullWidth onClick={handleDialogOpen}>Submit Question</Button>
+        </ListItem>
+      )}
     </List>
   );
 
@@ -69,7 +68,7 @@ const Sidebar = ({ onNewQuestion }) => {
       <Dialog open={dialogOpen} onClose={handleDialogClose}>
         <DialogTitle>Submit a New Question</DialogTitle>
         <DialogContent>
-          <NewQuestionForm onQuestionSubmit={handleQuestionSubmit} />
+          <NewQuestionForm onQuestionSubmit={handleQuestionSubmit} user={user} />      
         </DialogContent>
         <DialogActions>
           <Button onClick={handleDialogClose} color="primary">

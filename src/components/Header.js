@@ -35,7 +35,7 @@ const Header = () => {
     <AppBar position="static" sx={{ backgroundColor: '#fff', boxShadow: 'none', borderBottom: '1px solid #e0e0e0' }}>
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1, color: '#000', fontWeight: 'bold' }}>
-          Company
+          Amazing Tech
         </Typography>
         {isMobile ? (
           <>

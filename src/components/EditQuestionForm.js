@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box, Paper } from '@mui/material';
 
-const NewQuestionForm = ({ onQuestionSubmit, user }) => {
-  const [title, setTitle] = useState('');
+const EditQuestionForm = ({ question, onUpdateQuestion }) => {
+  const [title, setTitle] = useState(question.title);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const newQuestion = { title, author: user.name, date: new Date().toISOString().split('T')[0] };
+    const updatedQuestion = { ...question, title };
 
-    // Gửi dữ liệu đến JSON Server
-    const response = await fetch('http://localhost:3001/questions', {
-      method: 'POST',
+    // Gửi dữ liệu cập nhật đến JSON Server
+    const response = await fetch(`http://localhost:3001/questions/${question.id}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(newQuestion),
+      body: JSON.stringify(updatedQuestion),
     });
 
     if (response.ok) {
-      const createdQuestion = await response.json();
-      onQuestionSubmit(createdQuestion);
-      setTitle('');
+      const updatedQuestionFromServer = await response.json();
+      onUpdateQuestion(updatedQuestionFromServer);
     }
   };
 
@@ -33,10 +32,10 @@ const NewQuestionForm = ({ onQuestionSubmit, user }) => {
           onChange={(e) => setTitle(e.target.value)}
           required
         />
-        <Button type="submit" variant="contained">Submit</Button>
+        <Button type="submit" variant="contained">Update</Button>
       </Box>
     </Paper>
   );
 };
 
-export default NewQuestionForm;
+export default EditQuestionForm;
