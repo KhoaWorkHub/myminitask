@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Snackbar, Alert, Drawer, List, ListItem, ListItemText, Divider, Checkbox, FormControlLabel } from '@mui/material';
+import { Snackbar, Alert, Drawer, List, ListItem, ListItemText, Divider } from '@mui/material';
 import QuestionCard from './QuestionCard';
 import EditQuestionForm from './EditQuestionForm';
 import axios from 'axios';
 
-const MainContent = ({ questions, setQuestions, user }) => {
+const MainContent = ({ questions, onUpdateQuestion, onAdminResponse, user }) => {
   const [editingQuestion, setEditingQuestion] = useState(null);
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
-  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [filter, setFilter] = useState('all');
 
   const handleEdit = (question) => {
     setEditingQuestion(question);
@@ -15,16 +15,9 @@ const MainContent = ({ questions, setQuestions, user }) => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3001/questions/${id}`, {
-        method: 'DELETE',
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to delete question');
-      }
-
+      await axios.delete(`http://localhost:3001/questions/${id}`);
       setSnackbar({ open: true, message: 'Question deleted successfully', severity: 'success' });
-      setQuestions((prevQuestions) => prevQuestions.filter((q) => q.id !== id));
+      onUpdateQuestion((prevQuestions) => prevQuestions.filter((q) => q.id !== id));
     } catch (error) {
       setSnackbar({ open: true, message: 'Failed to delete question', severity: 'error' });
     }
@@ -33,9 +26,7 @@ const MainContent = ({ questions, setQuestions, user }) => {
   const handleUpdateQuestion = async (updatedQuestion) => {
     try {
       const response = await axios.put(`http://localhost:3001/questions/${updatedQuestion.id}`, updatedQuestion);
-      setQuestions((prevQuestions) =>
-        prevQuestions.map((q) => (q.id === updatedQuestion.id ? response.data : q))
-      );
+      onUpdateQuestion(response.data);
       setEditingQuestion(null);
       setSnackbar({ open: true, message: 'Question updated successfully', severity: 'success' });
     } catch (error) {
@@ -58,7 +49,7 @@ const MainContent = ({ questions, setQuestions, user }) => {
 
       try {
         await axios.put(`http://localhost:3001/questions/${questionId}`, updatedQuestion);
-        setQuestions(updatedQuestions);
+        onAdminResponse(questionId, response);
         setSnackbar({ open: true, message: 'Response submitted successfully', severity: 'success' });
       } catch (error) {
         setSnackbar({ open: true, message: 'Failed to submit response', severity: 'error' });
@@ -66,69 +57,44 @@ const MainContent = ({ questions, setQuestions, user }) => {
     }
   };
 
-  const handleFilterChange = (filter) => {
-    setSelectedFilters((prevFilters) =>
-      prevFilters.includes(filter)
-        ? prevFilters.filter((f) => f !== filter)
-        : [...prevFilters, filter]
-    );
-  };
-
+  // Đảo ngược thứ tự của mảng questions
   const reversedQuestions = [...questions].reverse();
 
   const filteredQuestions = reversedQuestions.filter((q) => {
-    if (selectedFilters.includes('responded') && selectedFilters.includes('unresponded')) {
-      return true;
-    } else if (selectedFilters.includes('responded')) {
+    if (filter === 'responded') {
       return q.adminResponse;
-    } else if (selectedFilters.includes('unresponded')) {
+    } else if (filter === 'unresponded') {
       return !q.adminResponse;
     }
     return true;
   });
 
   return (
-    <div style={{ display: 'flex' }}>
-      {user && user.role === 'admin' && (
-        <Drawer
-          anchor="left"
-          sx={{
-            width: 240,
-            flexShrink: 0,
-            [`& .MuiDrawer-paper`]: { width: 240, boxSizing: 'border-box' },
-          }}
-          variant="permanent"
-        >
-          <List>
-            <ListItem>
-              <ListItemText primary="Filter Questions" />
-            </ListItem>
-            <Divider />
-            <ListItem>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={selectedFilters.includes('responded')}
-                    onChange={() => handleFilterChange('responded')}
-                  />
-                }
-                label="Responded"
-              />
-            </ListItem>
-            <ListItem>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={selectedFilters.includes('unresponded')}
-                    onChange={() => handleFilterChange('unresponded')}
-                  />
-                }
-                label="Unresponded"
-              />
-            </ListItem>
-          </List>
-        </Drawer>
-      )}
+    <div>
+      <Drawer
+        anchor="left"
+        sx={{
+          width: 240,
+          flexShrink: 0,
+          [`& .MuiDrawer-paper`]: { width: 240, boxSizing: 'border-box' },
+        }}
+      >
+        <List>
+          <ListItem>
+            <ListItemText primary="Filter Questions" />
+          </ListItem>
+          <Divider />
+          <ListItem button onClick={() => setFilter('all')}>
+            <ListItemText primary="All" />
+          </ListItem>
+          <ListItem button onClick={() => setFilter('responded')}>
+            <ListItemText primary="Responded" />
+          </ListItem>
+          <ListItem button onClick={() => setFilter('unresponded')}>
+            <ListItemText primary="Unresponded" />
+          </ListItem>
+        </List>
+      </Drawer>
       <div style={{ flexGrow: 1, padding: '20px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
           {filteredQuestions.map((q, index) => (

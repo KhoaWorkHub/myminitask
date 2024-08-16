@@ -23,9 +23,9 @@
       "title": "ddd",
       "author": "kkk",
       "date": "2024-08-15",
-      "adminResponse": "dd",
+      "adminResponse": "ddd",
       "answerBy": "amazingtechAdmin@gmail.com",
-      "answerAtDate": "2024-08-16T00:16:17.319Z"
+      "answerAtDate": "2024-08-16T01:12:43.976Z"
     },
     {
       "id": "13f3",
@@ -41,9 +41,9 @@
       "title": "ddd",
       "author": "kkk",
       "date": "2024-08-15",
-      "adminResponse": "dd",
+      "adminResponse": "fff",
       "answerBy": "amazingtechAdmin@gmail.com",
-      "answerAtDate": "2024-08-16T01:07:16.763Z"
+      "answerAtDate": "2024-08-16T01:39:07.438Z"
     },
     {
       "id": "024c",
@@ -79,19 +79,13 @@
       "answerAtDate": "2024-08-16T01:10:19.710Z"
     },
     {
-      "id": "5a61",
-      "title": "333",
-      "author": "tkhoa22@gmail.com",
-      "date": "2024-08-16",
-      "adminResponse": "dd",
-      "answerBy": "amazingtechAdmin@gmail.com",
-      "answerAtDate": "2024-08-16T01:07:57.163Z"
-    },
-    {
       "id": "3288",
       "title": "ddd",
       "author": "tkhoa22@gmail.com",
-      "date": "2024-08-16"
+      "date": "2024-08-16",
+      "adminResponse": "ddd333",
+      "answerBy": "amazingtechAdmin@gmail.com",
+      "answerAtDate": "2024-08-16T01:38:49.900Z"
     }
   ]
 }
