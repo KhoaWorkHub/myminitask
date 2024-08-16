@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { List, ListItem, Button, IconButton, Dialog, DialogActions, DialogContent, DialogTitle, Drawer } from '@mui/material';
+import { useMediaQuery, IconButton, Drawer, List, ListItem, Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import NewQuestionForm from './NewQuestionForm';
 
 const Sidebar = ({ onNewQuestion, user }) => {
@@ -26,7 +25,7 @@ const Sidebar = ({ onNewQuestion, user }) => {
 
   const handleQuestionSubmit = (newQuestion) => {
     onNewQuestion(newQuestion);
-    setDialogOpen(false);
+    handleDialogClose();
   };
 
   const sidebarContent = (

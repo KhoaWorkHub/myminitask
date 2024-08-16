@@ -8,7 +8,6 @@ const NewQuestionForm = ({ onQuestionSubmit, user }) => {
     event.preventDefault();
     const newQuestion = { title, author: user.email, date: new Date().toISOString().split('T')[0] };
 
-    // Gửi dữ liệu đến JSON Server
     const response = await fetch('http://localhost:3001/questions', {
       method: 'POST',
       headers: {

@@ -11,7 +11,7 @@ const QuestionCard = ({ question, onEdit, onDelete, onAdminResponse, user }) => 
 
   const formatDate = (isoString) => {
     const date = new Date(isoString);
-    return date.toLocaleDateString(); // This will format the date according to the user's locale
+    return date.toLocaleDateString();
   };
 
   return (

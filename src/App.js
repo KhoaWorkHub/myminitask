@@ -5,6 +5,7 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
   const [questions, setQuestions] = useState([]);
@@ -12,20 +13,15 @@ function App() {
 
   useEffect(() => {
     const fetchQuestions = async () => {
-      const response = await fetch('http://localhost:3001/questions');
-      const data = await response.json();
-      setQuestions(data);
+      const response = await axios.get('http://localhost:3001/questions');
+      setQuestions(response.data);
     };
 
     fetchQuestions();
   }, []);
 
   const handleNewQuestion = (newQuestion) => {
-    const questionWithAuthorEmail = {
-      ...newQuestion,
-      author: user.email, // Sử dụng email thay vì tên
-    };
-    setQuestions((prevQuestions) => [...prevQuestions, questionWithAuthorEmail]);
+    setQuestions((prevQuestions) => [...prevQuestions, newQuestion]);
   };
 
   const handleLogin = (user) => {
